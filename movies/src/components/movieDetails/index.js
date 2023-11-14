@@ -10,13 +10,10 @@ import Fab from "@mui/material/Fab";
 import Typography from "@mui/material/Typography";
 import Drawer from "@mui/material/Drawer";
 import MovieReviews from "../movieReviews"
-import MovieCast from "../../pages/MovieCast";
 
 
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import { CardActionArea } from '@mui/material';
+
+
 
 
 const root = {
@@ -96,19 +93,6 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
   
     
 
-    <Card component="ul">
-      <CardActionArea>
-        <CardMedia>
-          <CardContent>
-            {movie.cast.map((cast) => (
-              <li key={actor.id}>
-                <Chip label={actor.name} />
-              </li>
-            ))}
-          </CardContent>
-        </CardMedia>
-      </CardActionArea>
-    </Card>
 
 
 
