@@ -7,9 +7,13 @@ import Spinner from '../components/spinner';
 import AddToFavoritesIcon from '../components/cardIcons/addToFavorites'
 
 
+import { getMovieCast  } from "../api/tmdb-api";
+import MovieCast from "./MovieCast";
+
+
 const HomePage = (props) => {
 
-  const {  data, error, isLoading, isError }  = useQuery('discover', getMovies)
+  const {  data, error, isLoading, isError }  = useQuery('discover', getMovies, getMovieCast)
 
   if (isLoading) {
     return <Spinner />
@@ -40,6 +44,8 @@ const HomePage = (props) => {
     <PageTemplate
       title="Discover Movies"
       movies={movies}
+      cast = {MovieCast}
+
       action={(movie) => {
         return <AddToFavoritesIcon movie={movie} />
       }}
