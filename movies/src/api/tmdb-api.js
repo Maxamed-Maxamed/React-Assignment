@@ -1,4 +1,4 @@
-import { excerpt } from "../util";
+// import { excerpt } from "../util";
 
   export const getMovie = (args) => {
     // console.log(args)
@@ -238,24 +238,7 @@ export const getTvShowCast = (args) => {
   });
 }
 
-export const getUpcomingTVshows = () => {
 
-  return fetch(
-    `https://api.themoviedb.org/3/tv/on_the_air?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
-  )
-
-  .then((response) => {
-    if (!response.ok) {
-      throw new Error(response.json().message);
-    }
-    return response.json();
-
-  })
-
-  .catch((error) => {
-    throw error
-  });
-}
 
 
 export const getTvShowSeasons = (args) => {
@@ -297,6 +280,23 @@ export const getTvShowEpisodes = (args) => {
   ((error) => {
     throw error
   });
+  
   };
 
 
+
+  export const getUpcomingTvshow =  () => {
+    return fetch(
+      `https://api.themoviedb.org/3/tv/upcoming?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
+    )
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(response.json().message);
+        }
+        return response.json();
+      })
+      .catch((error) => {
+        throw error;
+      });
+
+  };
